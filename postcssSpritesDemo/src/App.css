@@ -30,14 +30,14 @@
 }
 .btn-success{
   width:100px;
-  height:50px;
-  background:url(assets/images/btn-success.jpg);
+  height:100px;
+  background:url(assets/images/btn-success.png);
   background-size:100%;
 }
 .btn-error{
-  background:url(assets/images/btn-error.jpg);
+  background:url(assets/images/btn-error.png);
   width:100px;
-  height:50px;
+  height:100px;
   background-size:100%;
 }
 
