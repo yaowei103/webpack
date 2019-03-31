@@ -28,6 +28,7 @@ let spriteOpt = {
 			return cwd(`${spritesheet.groups[0]}_sprite.png`);
 		},
 
+		
 		// onUpdateRule(rule, token, image) {
 		// 	console.log('________image', image);
 		// 	console.log('________rule', rule);
