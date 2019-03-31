@@ -9,7 +9,7 @@ module.exports = function override(config, env) {
         mode:'development',
         entry:'./src/index.js',
         output:{
-            path: path.resolve(__dirname, "build"),
+            path:  path.resolve(__dirname, "./build"),
             filename: '[name].[chunkHash:5].js'
         },
         module:{
@@ -21,7 +21,7 @@ module.exports = function override(config, env) {
                             loader: "url-loader",
                             options: {
                                 name: "[name]-[hash:5].[ext]",
-                                limit: 5,
+                                limit: 1,
                                 outputPath: "./assets/images"
                             }
                         }
@@ -32,6 +32,7 @@ module.exports = function override(config, env) {
                     use: 
                         ExtractTextPlugin.extract({
                             fallback: 'style-loader',
+                            publicPath:'../../',
                             use: [
                                 {
                                     loader: 'css-loader'
@@ -40,6 +41,7 @@ module.exports = function override(config, env) {
                                     loader: 'postcss-loader',
                                     options:{
                                         ident:'postcss',
+                                        // outputPath:path.resolve('./assets/css')
                                     }
                                 }
                             ]
