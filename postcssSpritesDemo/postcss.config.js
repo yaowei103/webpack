@@ -6,7 +6,10 @@ const cwd = (...args) => path.join(__dirname, ...args)
 let spriteOpt = {
 	spritePath: './build/assets/images/',
 	stylesheetPath:'./src/assets/css/',
-	// basePath:'../images',
+	// basePath:'./a',
+	spritesmith:{
+		padding:2
+	},
 	groupBy(image){
 		console.log('groupBy:', image)
 		var filebasename = path.basename(image.styleFilePath);
@@ -25,7 +28,7 @@ let spriteOpt = {
 
 		onSaveSpritesheet(opts, spritesheet){//can remove build/assets/images/app.sprite.png
 			console.log('onSaveSpritesheet', spritesheet);
-			return cwd(`${spritesheet.groups[0]}_sprite.png`);
+			return `${spritesheet.groups[0]}_sprite.png`;
 		},
 
 		

@@ -41,7 +41,7 @@ module.exports = function override(config, env) {
                                     loader: 'postcss-loader',
                                     options:{
                                         ident:'postcss',
-                                        // outputPath:path.resolve('./assets/css')
+                                        // outputPath:'./assets/css' // if set outputPath, img can not sprite
                                     }
                                 }
                             ]
@@ -65,7 +65,8 @@ module.exports = function override(config, env) {
                 inject: 'body'
             }),
             new ExtractTextPlugin({
-                filename: './assets/css/[name]-[hash:5].css'
+                filename: './assets/css/[name]-[hash:5].css',
+                allChunks:true
             })
         ]
     }
