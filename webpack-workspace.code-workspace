@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "postcssSpritesDemo"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

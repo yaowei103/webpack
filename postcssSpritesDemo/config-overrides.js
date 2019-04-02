@@ -29,23 +29,52 @@ module.exports = function override(config, env) {
                 },
                 {
                     test: /\.css$/,
+                    exclude:[/\.js$/, /\.html$/, /\.json$/,/\.scss$/],
+                    use: ["css-hot-loader"].concat(
+                      ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: [
+                          {
+                            loader: "css-loader",
+                            options: {
+                              modules: true,
+                              localIdentName: "[name]__[local]___[hash:base64:5]"
+                            }
+                          },
+                          "postcss-loader"
+                        ]
+                      })
+                    )
+                },
+                {
+                    test: /\.(sass|scss|)$/,
                     use: 
-                        ExtractTextPlugin.extract({
-                            fallback: 'style-loader',
-                            publicPath:'../../',
-                            use: [
-                                {
-                                    loader: 'css-loader'
-                                },
-                                {
-                                    loader: 'postcss-loader',
-                                    options:{
-                                        ident:'postcss',
-                                        // outputPath:'./assets/css' // if set outputPath, img can not sprite
+                        ExtractTextPlugin.extract(
+                            Object.assign({
+                                fallback: 'style-loader',
+                                publicPath:'../../',
+                                use: [
+                                    {
+                                        loader: require.resolve('css-loader'),
+                                        options:{
+                                            modules: true,
+                                            sourceMap: true,
+                                        }
+                                    },
+                                    {
+                                        loader:require.resolve('sass-loader')
                                     }
-                                }
-                            ]
-                        })
+                                    
+                                    // {
+                                    //     loader: 'postcss-loader',
+                                    //     options:{
+                                    //         ident:'postcss',
+                                    //         // outputPath:'./assets/css' // if set outputPath, img can not sprite
+                                    //     }
+                                    // }
+                                ]
+                            })
+                        )
                 },
                 {
                     test: /\.js$/,

@@ -1,0 +1,62 @@
+#accessinfo{
+    display:none;
+}
+.app {
+    border: solid 1px #999;
+    background: #fff;
+    width: 500px;
+    box-sizing: border-box;
+    padding: 20px;
+
+    .title {
+        font-size: 20px;
+        font-weight: 600px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .infos {
+        width: 100%;
+        border: solid 1px #999;
+        border-bottom: none;
+        line-height: 20px;
+
+        span {
+            padding: 5px 10px;
+            border-right: solid 1px #999;
+            display: inline-block;
+            width: 64px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        input {
+            display: inline-block;
+            border: none;
+        }
+    }
+    .firstLine {
+        span {
+            &:nth-of-type(2), &:nth-of-type(3) {
+                border-left: solid 1px #999;
+            }
+        }
+        input {
+            width: 87px;
+        }
+    }
+
+    .lastLine {
+        border-left: none;
+        border-right: none;
+        border-top: solid 1px #999;
+        padding-top: 15px;
+        span {
+            border: none;
+        }
+    }
+    .opertion {
+        padding-top: 15px;
+        text-align: center;
+    }
+
+}
