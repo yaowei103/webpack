@@ -18,7 +18,8 @@ class Registration extends Component {
 				carNum:'',
 				tel:'',
 				date:'',
-				comeWith:''
+				comeWith:'',
+				receive:''
 		}
 		this.onChange = this.onChange.bind(this);
 		this.print = this.print.bind(this);
@@ -109,13 +110,16 @@ class Registration extends Component {
 							<label className={styles.label}>时间</label><input name="date" value={this.state.date} onChange={this.onChange} className={classNames(styles.input, styles.lastInput, styles.alignLeft)} type="text"/>
 						</div >
 						<div className={styles.formGroup}>
-							<label className={styles.label}>携带物品</label><input name="comeWith" value={this.state.comeWith} onChange={this.onChange} className={classNames(styles.input, styles.lastInput, styles.alignLeft)} type="text"/>
+							<label className={styles.label}>携带<br/>物品</label><input name="comeWith" value={this.state.comeWith} onChange={this.onChange} className={classNames(styles.input, styles.lastInput, styles.alignLeft)} type="text"/>
 						</div >
 						<div className={styles.formGroup}>
-							<label className={styles.label}>接待人签字</label>
+							<label className={styles.label}>接待人签字</label><input name="receive" onChange={this.onChange} className={classNames(styles.input, styles.receive)} value={this.state.receive} type="text"/>
+						</div >
+						<div className={classNames(styles.formGroup)}>
+							<label className={styles.label}>办理人:</label>
 						</div >
 						<div className={classNames(styles.formGroup, styles.lastGroup)}>
-							<label className={classNames(styles.label, styles.noBorder)}>办理人:</label>
+							<label className={classNames(styles.label, styles.noBorder, styles.descript)}>说明：此单仅供本人使用，不得涂改转借，此单当日有效</label>
 						</div >
 						<div id="buttonSection">
 							<div className={styles.opertion}>
